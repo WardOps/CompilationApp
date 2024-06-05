@@ -5,8 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg2"
     android:orientation="vertical"
-    android:background="@drawable/items_background"
     tools:context=".GuidedAct.SeventhGuided">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -80,7 +80,7 @@
             android:id="@+id/btnClickGE6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/buttons_background"
+            android:background="@color/material_dynamic_primary30"
             android:fontFamily="@font/amiko"
             android:text="Click"
             app:layout_constraintBottom_toTopOf="@+id/btnCloseGE7"
@@ -94,7 +94,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="40dp"
-            android:background="@drawable/buttons_background"
+            android:background="@color/material_dynamic_primary30"
             android:fontFamily="@font/amiko"
             android:text="Close"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -103,7 +103,6 @@
             app:layout_constraintStart_toStartOf="@+id/btnClickGE6" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
 </LinearLayout>

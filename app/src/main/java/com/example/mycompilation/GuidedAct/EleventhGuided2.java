@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RadioButton;
@@ -42,6 +43,8 @@ public class EleventhGuided2 extends AppCompatActivity {
     String[] thesisTopics = {"Web Based/On-Line Application", "Network-Based Application ",
             "System/Software Development ", "Computer Aided Instruction "};
     String gender, subjects, topic = "";
+
+    ImageView ivReturn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -148,5 +151,13 @@ public class EleventhGuided2 extends AppCompatActivity {
             }
         });
         return topic;
+    }
+    public void returnClicked(){
+        ivReturn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 }

@@ -7,6 +7,7 @@ import android.webkit.WebViewClient;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +22,7 @@ public class TenthGuided extends AppCompatActivity {
     AutoCompleteTextView suggestedURL;
     ArrayAdapter adapter;
     Button submit;
+    ImageView ivReturn;
     String [] urls = {"google.com","yahoo.com","facebook.com","youtube.com"};
 
     @Override
@@ -57,13 +59,21 @@ public class TenthGuided extends AppCompatActivity {
             public void onClick(View view) {
                 String url = suggestedURL.getText().toString();
 
-                if(!url.startsWith("www.") && !url.startsWith("http://") ){
+                if(!url.startsWith("www.") && !url.startsWith("https://") ){
                     url = "www." + url;
                 }
-                if(!url.startsWith("http://") ){
-                    url = "http://" + url;
+                if(!url.startsWith("https://") ){
+                    url = "https://" + url;
                 }
                 browser.loadUrl(url);
+            }
+        });
+    }
+    public void returnClicked(){
+        ivReturn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }

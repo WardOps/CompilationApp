@@ -1,6 +1,8 @@
 package com.example.mycompilation.GuidedAct;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -14,6 +16,7 @@ import com.example.mycompilation.R;
 public class EleventhGuidedResult2 extends AppCompatActivity {
 
     TextView name, age, gender, subjects, job, thesis;
+    ImageView ivReturn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,5 +42,13 @@ public class EleventhGuidedResult2 extends AppCompatActivity {
         subjects.setText("Subjects: \n" +getIntent().getStringExtra("id_subjects"));
         job.setText("Job: " +getIntent().getStringExtra("id_job"));
         thesis.setText("Thesis Topic: " +getIntent().getStringExtra("id_thesis"));
+    }
+    public void returnClicked(){
+        ivReturn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 }

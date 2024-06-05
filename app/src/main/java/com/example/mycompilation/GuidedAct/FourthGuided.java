@@ -31,7 +31,7 @@ public class FourthGuided extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(username.getText().toString().equals("judeigoprey") && password.getText().toString().equals("judeigop")){
+                if(username.getText().toString().equals("george") && password.getText().toString().equals("floyd")){
                     result.setText("Welcome " + username.getText().toString() +"!");
                     result.setTextColor(Color.GREEN);
                     clearEntry();

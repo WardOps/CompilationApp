@@ -8,15 +8,23 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:label="Judehub"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:label="Compilation"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyCompilation"
+        android:largeHeap="true"
+        android:hardwareAccelerated="true"
         tools:targetApi="31">
+        <activity
+            android:name=".Layout"
+            android:exported="false" />
         <activity
             android:name=".GuidedAct.EleventhGuidedResult2"
             android:exported="false" />
         <activity
             android:name=".GuidedAct.EleventhGuided2"
+            android:windowSoftInputMode="adjustPan"
             android:exported="false" />
         <activity
             android:name=".GuidedAct.ThirteenthGuided"

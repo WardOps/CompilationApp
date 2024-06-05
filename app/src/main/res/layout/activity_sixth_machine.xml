@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FBFBFB"
+    android:background="@drawable/bg2"
     tools:context=".MachineAct.SixthMachineAct">
 
     <LinearLayout
@@ -228,6 +228,7 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="36dp"
+                android:background="@color/material_dynamic_primary30"
                 android:text="@string/btnCompute"
                 app:cornerRadius="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -239,6 +240,7 @@
                 android:id="@+id/btnClear"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
+                android:background="@color/material_dynamic_primary30"
                 android:text="@string/btnClear"
                 app:cornerRadius="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"

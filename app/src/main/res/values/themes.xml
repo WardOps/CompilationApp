@@ -3,6 +3,7 @@
     <style name="Base.Theme.MyCompilation" parent="Theme.AppCompat.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="Theme.MyCompilation" parent="Base.Theme.MyCompilation" />

@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:orientation="vertical"
-    android:background="@drawable/items_background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg2"
+    android:orientation="vertical"
     tools:context=".MachineAct.FifthMachine">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -258,7 +258,7 @@
             android:id="@+id/btnClearAll"
             android:layout_width="102dp"
             android:layout_height="54dp"
-            android:background="@drawable/buttons_background"
+            android:background="@color/material_dynamic_primary30"
             android:fontFamily="@font/amiko"
             android:text="CLEAR ALL"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -273,7 +273,7 @@
             android:layout_width="103dp"
             android:layout_height="51dp"
             android:layout_marginStart="80dp"
-            android:background="@drawable/buttons_background"
+            android:background="@color/material_dynamic_primary30"
             android:fontFamily="@font/amiko"
             android:text="COMPUTE"
             app:layout_constraintBottom_toBottomOf="parent"

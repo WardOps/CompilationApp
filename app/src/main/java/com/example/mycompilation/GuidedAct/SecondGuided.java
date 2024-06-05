@@ -41,7 +41,7 @@ public class SecondGuided extends AppCompatActivity {
                 toast = Toast.makeText(getApplicationContext(),
                         "Hello " + name.getText().toString() + "! \nWelcome to Android Development!",Toast.LENGTH_SHORT);
                 view = toast.getView();
-                view.getBackground().setColorFilter(Color.GREEN, PorterDuff.Mode.SRC_IN);
+                //view.getBackground().setColorFilter(Color.GREEN, PorterDuff.Mode.SRC_IN);
                 toast.setGravity(Gravity.CENTER, 0, 0);
                 toast.show();
             }

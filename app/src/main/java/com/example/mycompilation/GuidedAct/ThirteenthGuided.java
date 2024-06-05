@@ -17,13 +17,7 @@ public class ThirteenthGuided extends AppCompatActivity {
 
     EditText studentId, studentName, studentSemGrade;
     Button addRecord, deleteRecord, editRecord, viewRecord, viewAllRecord;
-    // SQLiteDatabase is the base class for working with a SQLite database
-    // in Android and provides methods to open, query, update and close the database.
-    // It provides the execSQL() method, which allows to execute an SQL statement directly.
     SQLiteDatabase db;
-    // A query returns a Cursor object. A Cursor represents the result of a query and basically
-    // points to one row of the query result. This way Android can buffer the query results efficiently;
-    // as it does not have to load all data into memory.
     Cursor cursor;
     AlertDialog.Builder builder;
     StringBuffer buffer;
@@ -41,7 +35,7 @@ public class ThirteenthGuided extends AppCompatActivity {
     }
 
     public void init() {
-        studentId = (EditText) findViewById(R.id.etStudentIDD);
+        studentId = findViewById(R.id.etStudentIDD);
         studentName = findViewById(R.id.etStudentNAme);
         studentSemGrade = findViewById(R.id.etStudentSemGrade);
 
@@ -52,19 +46,9 @@ public class ThirteenthGuided extends AppCompatActivity {
         viewAllRecord = findViewById(R.id.btnviewAllRecord);
 
         builder = new AlertDialog.Builder(this);
-        // openOrCreateDatabase()
-        // It is used to open the database if it exists or create a new one if it does not exist.
-        // The first parameter specifies the name of the database to be opened or created.
-        // The second parameter, Context.MODE_PRIVATE indicates that the database file can only
-        // be accessed by the calling application or all applications sharing the same user ID.
-        // The third parameter is a Cursor factory object which can be left null if not required.
         db = openOrCreateDatabase("StudentDB", Context.MODE_PRIVATE, null);
-        // execSQL()
-        // it is used to execute any SQL command. Here it is used to create the student table
-        // if it does not already exist in the database.
         db.execSQL("DROP TABLE IF EXISTS tbl_student;");
         db.execSQL("CREATE TABLE IF NOT EXISTS tbl_student (student_id INTEGER PRIMARY KEY AUTOINCREMENT, student_name TEXT, student_semGrade INTEGER);");
-        studentId.setEnabled(false);
         studentName.requestFocus();
     }
 
@@ -86,14 +70,16 @@ public class ThirteenthGuided extends AppCompatActivity {
         addRecord.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (studentName.getText().toString().isEmpty() ||
+                if (studentId.getText().toString().isEmpty() ||
+                        studentName.getText().toString().isEmpty() ||
                         studentSemGrade.getText().toString().isEmpty()) {
                     displayMessage("Error!", "Please Complete the Entries");
                     return;
                 }
 
-                db.execSQL("INSERT INTO tbl_student(student_name,student_semGrade) " +
-                        "VALUES('" + studentName.getText().toString() + "'" + "," +
+                db.execSQL("INSERT INTO tbl_student(student_id, student_name, student_semGrade) " +
+                        "VALUES('" + studentId.getText().toString() + "'," +
+                        "'" + studentName.getText().toString() + "'," +
                         "'" + studentSemGrade.getText().toString() + "')");
                 displayMessage("Information!", "Student Record has been successfully added!");
                 clearEntries();
@@ -106,12 +92,10 @@ public class ThirteenthGuided extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (studentId.getText().toString().isEmpty()) {
-                    studentId.setEnabled(true);
                     displayMessage("Information!", "Please Enter a Student ID");
                     studentId.requestFocus();
                     return;
                 }
-                // rawQuery() It directly accepts an SQL select statement as input.
                 cursor = db.rawQuery("SELECT * FROM tbl_student WHERE student_id =" + Integer.parseInt(studentId.getText().toString()), null);
                 if (cursor.moveToFirst()) {
                     db.execSQL("DELETE FROM tbl_student WHERE student_id =" + Integer.parseInt(studentId.getText().toString()));
@@ -119,7 +103,6 @@ public class ThirteenthGuided extends AppCompatActivity {
                 } else {
                     displayMessage("Error!", "Invalid Student ID");
                 }
-                studentId.setEnabled(false);
                 clearEntries();
             }
         });
@@ -130,9 +113,7 @@ public class ThirteenthGuided extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (studentId.getText().toString().isEmpty()) {
-                    studentId.setEnabled(true);
                     displayMessage("Information!", "Please Enter a Student ID");
-                    editRecord.setText("SAVE");
                     studentId.requestFocus();
                     return;
                 }
@@ -144,8 +125,6 @@ public class ThirteenthGuided extends AppCompatActivity {
                 } else {
                     displayMessage("Error!", "Invalid Student ID");
                 }
-                editRecord.setText("EDIT");
-                studentId.setEnabled(false);
                 clearEntries();
             }
         });
@@ -156,7 +135,6 @@ public class ThirteenthGuided extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (studentId.getText().toString().isEmpty()) {
-                    studentId.setEnabled(true);
                     displayMessage("Information!", "Please Enter a Student ID");
                     studentId.requestFocus();
                     return;
@@ -171,7 +149,6 @@ public class ThirteenthGuided extends AppCompatActivity {
                 } else {
                     displayMessage("Error!", "Invalid Student ID");
                 }
-                studentId.setEnabled(false);
                 clearEntries();
             }
         });
@@ -197,4 +174,3 @@ public class ThirteenthGuided extends AppCompatActivity {
         });
     }
 }
-
